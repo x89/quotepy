@@ -186,7 +186,8 @@ def vote(quote_id):
 
 @app.route("/add", methods=["GET"])
 def add_form():
-    return render_template("add.html")
+    return render_template("add.html",
+               pagetitle="add")
 
 @app.route("/add", methods=["POST"])
 def add_handler():
