@@ -1,0 +1,14 @@
+{% extends "layout.html" %}
+
+{% block content %}
+<form method="POST" action="{{ url_for("add_handler") }}" id="add">
+    <fieldset>
+        <label>Quote</label><br>
+        {% if message %}
+            <p class="notify">{{ message }}</p>
+        {% endif %}
+        <textarea name="quote"></textarea>
+    </fieldset>
+    <button type="submit">Send!</button>
+</form>
+{% endblock %}

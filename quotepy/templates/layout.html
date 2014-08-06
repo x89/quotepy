@@ -1,0 +1,45 @@
+<!doctype html>
+<html>
+    <head>
+        <title>{{ SITE_TITLE }} - {{ pagetitle }}</title>
+        <meta http-equiv="content-type" content="text/html; charset=utf-8">
+        <meta name="title" content="{{ SITE_TITLE }}">
+        <meta name="author" content="{{ SITE_MAINTAINER }}">
+        <meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1">
+        <link rel="stylesheet" type="text/css" 
+            href="{{ url_for('static', filename='css/layout.css') }}">
+        <script src="//ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+        <script src="{{ url_for("static", filename='js/app.js') }}"></script>
+    </head>
+    <body>
+        <header>
+            <h1>{{ SITE_TITLE }} - {{ pagetitle }}</h1>
+            <nav>
+                <ul>
+                    <li><a href="{{ url_for('latest') }}" title="">latest</a></li>
+                    <li><a href="{{ url_for('browse') }}" title="">browse</a></li>
+                    <li><a href="{{ url_for('random') }}" title="">random</a></li>
+                    <li><a href="{{ url_for('add_form') }}" title="">add</a></li>
+                    <li><a href="{{ url_for('top') }}" title="">top</a></li>
+                </ul>
+            </nav>
+        </header>
+        <section id="content">
+            {% block content %}{% endblock %}
+        </section>
+        <footer>
+             <nav>
+                <ul>
+                    <li><a href="{{ url_for('latest') }}" title="">latest</a></li>
+                    <li><a href="{{ url_for('browse') }}" title="">browse</a></li>
+                    <li><a href="{{ url_for('random') }}" title="">random</a></li>
+                    <li><a href="{{ url_for('add_form') }}" title="">add</a></li>
+                    <li><a href="{{ url_for('top') }}" title="">top</a></li>
+                </ul>
+            </nav>
+            <section id="statistics">
+                There are <em>{{ QUOTES_APPROVED }}</em> quotes approved and <em>{{ QUOTES_PENDING }}</em> pending.
+            </section>
+        </footer>
+    </body>
+</html>

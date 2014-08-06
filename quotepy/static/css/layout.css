@@ -1,0 +1,60 @@
+@media screen {
+    html {
+        background: #333;
+    }
+
+    body {
+        background: #fff;
+        font-family: sans-serif;
+        margin: 2em auto;
+        width: 90%;
+        padding: 2em;
+    }
+
+    h1, h2, h3 {
+        font-family: serif;
+        margin: .25em 0 .5em 0;
+    }
+
+    nav ul {
+        padding: 0;
+    }
+
+    nav li {
+        display: inline-block;
+    }
+
+    nav a {
+        background: #333;
+        color: #fff;
+        padding: .5em;
+        text-decoration: none;
+    }
+
+    h1 {
+        font-size: 2em;
+    }
+
+    h2 {
+        font-size: 1.5em;
+    }
+
+    blockquote {
+        background: #333;
+        color: #fefefe;
+        font-family: monospace;
+        font-size: 1em;
+        margin: .25em 0 .5em 0;
+        padding: .5em;
+        white-space: pre;
+    }
+
+    #content {
+        margin: 1em 0;
+    }
+
+    textarea {
+        height: 200px;
+        width: 60%;
+    }
+}

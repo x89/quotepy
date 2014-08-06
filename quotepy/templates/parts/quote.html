@@ -1,0 +1,14 @@
+<article class="quote" data-quote-id="{{ quote.quote_id }}">
+    <h3>
+        #{{ quote.quote_id }} - 
+        {{ quote.pub_date }} 
+        (<span class="score">{{ quote.score }}</span> 
+        <a class="vote" href="#" data-direction="1">+</a>/
+        <a class="vote" href="#" data-direction="-1">-</a>)
+    </h3>
+    {% if quote.status == "pending" %}
+        <p class="notify">Oh god, this quote is still pending!</p>
+    {% endif %}
+    <blockquote>{{ quote.raw }}</blockquote>
+    <p class="extra"><a href="{{ url_for("view", quote_id=quote.quote_id) }}">view</a></p>
+</article>

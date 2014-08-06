@@ -1,0 +1,22 @@
+{% extends "layout.html" %}
+
+{% block content %}
+
+{% if not quotes %}
+<p class="notify">Oh god, no quotes!</p>
+{% else %}
+    {% if page %}
+        <ul class="pages">
+            {% for a_page in range(1, pagination.pages) %}
+                <li>
+                    <a href="{{ url_for("browse", page=a_page) }}">{{ a_page }}</a>
+                </li>
+            {% endfor %}
+        </ul>
+    {% endif %}
+    {% for quote in quotes %}
+        {% include "parts/quote.html" %}
+    {% endfor %}
+{% endif %}
+
+{% endblock %}
