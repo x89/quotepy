@@ -157,6 +157,27 @@ def view(quote_id):
 
     return render_template("listing.html")
 
+@app.route("/id/<int:quote_id>")
+def view_id(quote_id):
+    """View a specifc quote by ID"""
+
+    quote = session\
+               .query(Quote)\
+               .filter(Quote.id==quote_id)\
+               .limit(1)\
+               .first()
+
+    if quote is None:
+        return abort(404)
+
+    return render_template(
+            "single.html",
+            quote=quote,
+            pagetitle="#%s" % (quote.quote_id,)
+            )
+
+    return render_template("listing.html")
+
 @app.route("/vote/<string:quote_id>", methods=["POST"])
 def vote(quote_id):
     """Up or down!"""
