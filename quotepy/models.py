@@ -32,6 +32,8 @@ class HasDates(object):
 
 class Quote(HasDates, Base):
     quote_id = Column(String)
+    
+    bash_id = Column(Integer, default=0)
 
     raw = Column(Text)
 

@@ -9,6 +9,9 @@ def main():
     if args:
         if args[0] == "init_db":
             Base.metadata.create_all(engine)
+        
+        if args[0] == "drop_db":
+            Base.metadata.drop_all(engine)
 
         if args[0] == "accept":
             quote = session.query(Quote).filter(Quote.quote_id == args[1]).first()
@@ -45,11 +48,14 @@ def main():
 
             # No validation LET'S DO THIS LIVE
             for entry in data:
+                i = entry["id"]
                 q = entry["quote"]
                 d = datetime.datetime.fromtimestamp(entry["timestamp"])
                 s = entry["popularity"]
 
                 quote = Quote(raw=q)
+
+                quote.bash_id = i
 
                 quote.pub_date = d
                 quote.chg_date = d

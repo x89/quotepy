@@ -163,7 +163,7 @@ def view_id(quote_id):
 
     quote = session\
                .query(Quote)\
-               .filter(Quote.id==quote_id)\
+               .filter(Quote.bash_id==quote_id)\
                .limit(1)\
                .first()
 
