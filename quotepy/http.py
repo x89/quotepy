@@ -136,13 +136,13 @@ def random():
 
     return render_template("listing.html")
 
-@app.route("/view/<string:quote_id>")
+@app.route("/view/<int:quote_id>")
 def view(quote_id):
     """View a specifc quote"""
 
     quote = session\
                .query(Quote)\
-               .filter(Quote.quote_id==quote_id)\
+               .filter(Quote.id==quote_id)\
                .limit(1)\
                .first()
 
@@ -152,28 +152,7 @@ def view(quote_id):
     return render_template(
             "single.html",
             quote=quote,
-            pagetitle="#%s" % (quote.quote_id,)
-            )
-
-    return render_template("listing.html")
-
-@app.route("/id/<int:quote_id>")
-def view_id(quote_id):
-    """View a specifc quote by ID"""
-
-    quote = session\
-               .query(Quote)\
-               .filter(Quote.bash_id==quote_id)\
-               .limit(1)\
-               .first()
-
-    if quote is None:
-        return abort(404)
-
-    return render_template(
-            "single.html",
-            quote=quote,
-            pagetitle="#%s" % (quote.quote_id,)
+            pagetitle="#%s" % (quote.id,)
             )
 
     return render_template("listing.html")
@@ -183,7 +162,7 @@ def vote(quote_id):
     """Up or down!"""
     quote = session\
                .query(Quote)\
-               .filter(Quote.quote_id==quote_id)\
+               .filter(Quote.id==quote_id)\
                .limit(1)\
                .first()
 
@@ -222,7 +201,7 @@ def add_handler():
     session.add(quote)
     session.commit()
 
-    return redirect(url_for("view", quote_id=quote.quote_id))
+    return redirect(url_for("view", quote_id=quote.id))
 
 def main():
     app.run("0.0.0.0", 5001)

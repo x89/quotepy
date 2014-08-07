@@ -55,7 +55,7 @@ def main():
 
                 quote = Quote(raw=q)
 
-                quote.bash_id = i
+                quote.id = i
 
                 quote.pub_date = d
                 quote.chg_date = d

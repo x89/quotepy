@@ -31,10 +31,6 @@ class HasDates(object):
     chg_date = Column(DateTime)
 
 class Quote(HasDates, Base):
-    quote_id = Column(String)
-    
-    bash_id = Column(Integer, default=0)
-
     raw = Column(Text)
 
     # We also need an accepted date
@@ -55,8 +51,6 @@ class Quote(HasDates, Base):
     def __init__(self, raw):
         self.pub_date = datetime.datetime.utcnow()
         self.chg_date = datetime.datetime.utcnow()
-
-        self.quote_id = self._create_id()
 
         self.raw = raw
         self.status = "pending"
