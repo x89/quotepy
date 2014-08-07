@@ -18,7 +18,7 @@ def main():
             session.add(quote)
             session.commit()
 
-            print "quote #%s accepted" % (quote.quote_id,)
+            print("quote #%s accepted" % (quote.quote_id,))
 
         if args[0] == "remove":
             quote = session.query(Quote).filter(Quote.quote_id == args[1]).first()

@@ -118,7 +118,7 @@ def random():
                           .first()
 
     # Pick a 100
-    ids = [randint(min_id, max_id) for _ in xrange(100)]
+    ids = [randint(min_id, max_id) for _ in range(100)]
 
     # Get them and pray 20 are not deleted/pending/non-accepted
     quotes = session\
